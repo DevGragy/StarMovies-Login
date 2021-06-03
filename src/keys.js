@@ -1,5 +1,5 @@
 module.exports = {
     mongodb: {
-      URI: 'mongodb://localhost:27017/login-starmovies'
+      URI: 'mongodb+srv://root:root@cluster0.kmcgx.mongodb.net/starmovies-login?retryWrites=true&w=majority'
     }
   };
