@@ -6,6 +6,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const morgan = require('morgan');
+const cors = require('cors')
+const {config} = require('./config');
 
 // Inicializacion del server
 const app = express();
@@ -37,6 +39,10 @@ app.use((req, res, next) => {
   console.log(app.locals)
   next();
 });
+
+app.use(cors(
+  config.application.cors.server
+))
 
 
 // Rutas
