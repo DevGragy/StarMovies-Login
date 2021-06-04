@@ -40,9 +40,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors(
-  config.application.cors.server
-))
+app.use(cors());
+app.options('*', cors());
 
 
 // Rutas
