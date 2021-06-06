@@ -43,7 +43,6 @@ app.use((req, res, next) => {
 app.use(cors());
 app.options('*', cors());
 
-
 // Rutas
 app.use('/', require('./routes/index'))
 
