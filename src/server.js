@@ -48,11 +48,11 @@ app.use(function (req, res, next) {
 
 app.use(
   session({
-    secret: "mysecretsession",
+    secret: 'mysecretsession',
     resave: true,
     saveUninitialized: true,
     cookie: {
-      SameSite: "none",
+      sameSite: 'none',
       secure: true,
     },
   })
