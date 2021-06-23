@@ -7,7 +7,7 @@ const session = require("express-session");
 const passport = require("passport");
 const morgan = require("morgan");
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const User = require("./models/user");
 
 // Inicializacion del server
@@ -52,7 +52,7 @@ app.use(
     resave: true,
     saveUninitialized: true,
     cookie: {
-      sameSite: "none",
+      SameSite: "none",
       secure: true,
     },
   })
