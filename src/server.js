@@ -25,8 +25,10 @@ app.set("port", process.env.PORT || 4000);
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({ credentials: true }));
-app.options("*", cors());
+app.use(
+  cors({ origin: "https://starmoviesreact.netlify.app/", credentials: true })
+);
+app.options("https://starmoviesreact.netlify.app/", cors());
 app.use(
   session({
     secret: "mysecretsession",
