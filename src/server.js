@@ -43,7 +43,6 @@ app.use(function (req, res, next) {
     "X-Requested-With,content-type"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
-  // Pass to next layer of middleware
   next();
 });
 
@@ -52,6 +51,10 @@ app.use(
     secret: "mysecretsession",
     resave: true,
     saveUninitialized: true,
+    cookie: {
+      sameSite: "none",
+      secure: "true",
+    },
   })
 );
 app.use(cookieParser("mysecretsession"));
