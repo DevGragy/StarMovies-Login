@@ -25,10 +25,15 @@ app.set("port", process.env.PORT || 4000);
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-app.options("http://localhost:3000", cors());
+app.use(
+  cors({ origin: "https://starmoviesreact.netlify.app", credentials: true })
+);
+app.options("https://starmoviesreact.netlify.app", cors());
 app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://starmoviesreact.netlify.app"
+  );
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
