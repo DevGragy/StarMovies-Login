@@ -51,6 +51,7 @@ app.use(
     secret: 'mysecretsession',
     resave: true,
     saveUninitialized: true,
+    proxy: true,
     cookie: {
       sameSite: 'none',
       secure: true,
