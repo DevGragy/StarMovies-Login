@@ -57,7 +57,7 @@ app.use(
     },
   })
 );
-app.use(cookieParser("mysecretsession"));
+// app.use(cookieParser("mysecretsession"));
 // app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
