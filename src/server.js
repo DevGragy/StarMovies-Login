@@ -35,6 +35,10 @@ app.use(function (req, res, next) {
     "https://starmoviesreact.netlify.app"
   );
   res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://amore-vino.netlify.app"
+  );
+  res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
   );

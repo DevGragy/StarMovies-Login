@@ -6,33 +6,33 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("signup");
+  res.render("sign-up");
 });
 
 router.post(
-  "/signup",
+  "/sign-up",
   passport.authenticate("local-signup", {
-    successRedirect: "/profile",
-    failureRedirect: "/signup",
+    successRedirect: "/",
+    failureRedirect: "/sign-up",
     failureFlash: true,
   })
 );
 
-router.get("/signin", (req, res, next) => {
-  res.render("signin");
+router.get("/sign-in", (req, res, next) => {
+  res.render("sign-in");
 });
 
 router.post(
-  "/signin",
+  "/sign-in",
   passport.authenticate("local-signin", {
-    successRedirect: "/profile",
-    failureRedirect: "/signin",
+    successRedirect: "/",
+    failureRedirect: "/sign-in",
     failureFlash: true,
   })
 );
 
-router.get("/profile", isAuthenticated, (req, res, next) => {
-  res.render("profile");
+router.get("/", isAuthenticated, (req, res, next) => {
+  res.render("");
 });
 
 router.get("/logout", (req, res, next) => {
