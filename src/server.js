@@ -26,9 +26,9 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
-  cors({ origin: "https://starmoviesreact.netlify.app", credentials: true })
+  cors({ origin: "https://amore-vino.netlify.app", credentials: true })
 );
-app.options("https://starmoviesreact.netlify.app", cors());
+app.options("https://amore-vino.netlify.app", cors());
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
