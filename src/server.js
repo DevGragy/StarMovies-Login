@@ -83,7 +83,7 @@ app.post("/sign-in", (req, res, next) => {
     } else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Succesfully Authenticated");
+        res.send("Autenticacion exitosa!");
         console.log(req.user);
       });
     }
@@ -93,13 +93,13 @@ app.post("/sign-in", (req, res, next) => {
 app.post("/sign-up", (req, res) => {
   User.findOne({ email: req.body.email }, async (err, doc) => {
     if (err) throw err;
-    if (doc) res.status(409).json({ message: "Email already taken" });
+    if (doc) res.status(409).json({ message: "Email ocupado" });
     if (!doc) {
       const newUser = new User();
       newUser.email = req.body.email;
       newUser.password = newUser.encryptPassword(req.body.password);
       await newUser.save();
-      res.status(201).json({ message: "New user created successfully" });
+      res.status(201).json({ message: "Nueva cuenta creada!" });
     }
   });
 });
@@ -110,7 +110,7 @@ app.get("/user", (req, res) => {
 
 app.get("/logout", (req, res, next) => {
   req.logout();
-  res.send("Sucessfully logout");
+  res.send("Sesion cerrada!");
 });
 
 // Server

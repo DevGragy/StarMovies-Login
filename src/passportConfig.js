@@ -13,10 +13,10 @@ module.exports = function (passport) {
       async (req, email, password, done) => {
         const user = await User.findOne({ email: email });
         if (!user) {
-          return done(null, false, { message: "Incorrect username." });
+          return done(null, false, { message: "Email incorrecto" });
         }
         if (!user.comparePassword(password)) {
-          return done(null, false, { message: "Incorrect password." });
+          return done(null, false, { message: "Password incorrecto" });
         }
         return done(null, user);
       }

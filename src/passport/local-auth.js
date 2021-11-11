@@ -27,7 +27,7 @@ passport.use(
         return done(
           null,
           false,
-          req.flash("signupMessage", "The Email is already Taken.")
+          req.flash("signupMessage", "Este email ya esta ocupado.")
         );
       } else {
         const newUser = new User();
@@ -52,13 +52,13 @@ passport.use(
     async (req, email, password, done) => {
       const user = await User.findOne({ email: email });
       if (!user) {
-        return done(null, false, req.flash("signinMessage", "No User Found"));
+        return done(null, false, req.flash("signinMessage", "Usuario no encontrado"));
       }
       if (!user.comparePassword(password)) {
         return done(
           null,
           false,
-          req.flash("signinMessage", "Incorrect Password")
+          req.flash("signinMessage", "Password incorrecto")
         );
       }
       return done(null, user);
