@@ -32,10 +32,6 @@ app.options("https://starmoviesreact.netlify.app", cors());
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://starmoviesreact.netlify.app"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Origin",
     "https://amore-vino.netlify.app"
   );
   res.setHeader(
@@ -79,7 +75,7 @@ require("./passportConfig")(passport);
 // Rutas
 // app.use("/", require("./routes/index"));
 
-app.post("/signin", (req, res, next) => {
+app.post("/sign-in", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
     if (!user) {
@@ -94,7 +90,7 @@ app.post("/signin", (req, res, next) => {
   })(req, res, next);
 });
 
-app.post("/signup", (req, res) => {
+app.post("/sign-up", (req, res) => {
   User.findOne({ email: req.body.email }, async (err, doc) => {
     if (err) throw err;
     if (doc) res.status(409).json({ message: "Email already taken" });
